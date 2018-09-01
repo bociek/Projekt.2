@@ -45,18 +45,48 @@ class AudiobookRepository
         return $queryBuilder->execute()->fetchAll();
     }
 
+    /**
+     * Query all records.
+     *
+     * @return \Doctrine\DBAL\Query\QueryBuilder Result
+     */
+    protected function queryAll()
+    {
+        $queryBuilder = $this->db->createQueryBuilder();
+
+        return $queryBuilder->select('u.author', 'u.title', 'u.year')
+            ->from('audiobooks', 'u');
+    }
+
     public function findAllPaginated($page = 1)
     {
+        $countQueryBuilder = $this->queryAll($page)
+            ->select('COUNT(DISTINCT u.id) AS total_results')
+            ->setMaxResults(1);
+
+        $paginator = new Paginator($this->queryAll($page), $countQueryBuilder);
+        $paginator->setCurrentPage($page);
+        $paginator->setMaxPerPage(static::NUM_ITEMS);
+
+        return $paginator->getCurrentPageResults();
+    }
+
+    protected function countAllPages()
+    {
+        $pagesNumber = 1;
+
         $queryBuilder = $this->queryAll();
-        $queryBuilder->setFirstResult(($page - 1) * static::NUM_ITEMS)
-            ->setMaxResults(static::NUM_ITEMS);
+        $queryBuilder->select('COUNT(DISTINCT u.id) AS total_results')
+            ->setMaxResults(1);
 
-        $paginator = [
-            'page' => $page,
-            'max_results' => static::NUM_ITEMS,
-            'data' => $queryBuilder->execute()->fetchAll(),
-        ];
+        $result = $queryBuilder->execute()->fetch();
 
-        return $paginator;
+        if ($result) {
+            $pagesNumber =  ceil($result['total_results'] / static::NUM_ITEMS);
+        } else {
+            $pagesNumber = 1;
+        }
+
+        return $pagesNumber;
     }
 }

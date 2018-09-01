@@ -1,27 +1,29 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    {{ 'title.albums'|trans }}
+    {{ 'title.podcasts'|trans }}
 {% endblock %}
 
 {% block body %}
 
     <h1>
-        {{ 'table.albums'|trans }}
+        {{ 'table.podcasts'|trans }}
     </h1>
     {% if paginator.data is defined and paginator.data|length %}
         <table>
             <tr>
                 <th>{{ 'table.id'|trans }} </th>
-                <th>{{ 'table.artist'|trans }} </th>
-                <th>{{ 'table.album'|trans }} </th>
+                <th>{{ 'table.author'|trans }} </th>
+                <th>{{ 'table.title'|trans }} </th>
+                <th>{{ 'table.cast'|trans }} </th>
                 <th>{{ 'table.year'|trans }} </th>
             </tr>
             {% for row in paginator.data %}
                 <tr>
                     {#<td>{{ row.id }}</td>#}
-                    <td>{{ row.artist }}</td>
-                    <td>{{ row.album }}</td>
+                    <td>{{ row.author }}</td>
+                    <td>{{ row.title }}</td>
+                    <td>{{ row.cast }}</td>
                     <td>{{ row.year }}</td>
                 </tr>
             {% endfor %}

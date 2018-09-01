@@ -6,6 +6,71 @@
                 <source>title.homepage</source>
                 <target>Homepage</target>
             </trans-unit>
+
+            <trans-unit id="title.albums">
+                <source>title.albums</source>
+                <target>List of albums</target>
+            </trans-unit>
+
+            <trans-unit id="title.audiobooks">
+                <source>title.audiobooks</source>
+                <target>List of audiobooks</target>
+            </trans-unit>
+
+            <trans-unit id="title.podcasts">
+                <source>title.podcasts</source>
+                <target>List of podcasts</target>
+            </trans-unit>
+
+            <trans-unit id="table.albums">
+                <source>table.albums</source>
+                <target>Popular albums</target>
+            </trans-unit>
+
+            <trans-unit id="table.audiobooks">
+                <source>table.audiobooks</source>
+                <target>Popular audiobooks</target>
+            </trans-unit>
+
+            <trans-unit id="table.podcasts">
+                <source>table.podcasts</source>
+                <target>Popular podcasts</target>
+            </trans-unit>
+
+            <trans-unit id="table.id">
+                <source>table.id</source>
+                <target>#</target>
+            </trans-unit>
+
+            <trans-unit id="table.album">
+                <source>table.album</source>
+                <target>Album title</target>
+            </trans-unit>
+
+            <trans-unit id="table.author">
+                <source>table.author</source>
+                <target>Author(s) name</target>
+            </trans-unit>
+
+            <trans-unit id="table.artist">
+                <source>table.artist</source>
+                <target>Artist(s) name</target>
+            </trans-unit>
+
+            <trans-unit id="table.cast">
+                <source>table.cast</source>
+                <target>Cast</target>
+            </trans-unit>
+
+            <trans-unit id="table.title">
+                <source>table.title</source>
+                <target>Title</target>
+            </trans-unit>
+
+            <trans-unit id="table.year">
+                <source>table.year</source>
+                <target>Year</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

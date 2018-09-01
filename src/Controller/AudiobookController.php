@@ -6,6 +6,7 @@ namespace Controller;
 
 use Silex\Application;
 use Silex\Api\ControllerProviderInterface;
+use Repository\AudiobookRepository;
 
 class AudiobookController implements ControllerProviderInterface
 {

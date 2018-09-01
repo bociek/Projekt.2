@@ -50,13 +50,12 @@ class AlbumRepository
      *
      * @return \Doctrine\DBAL\Query\QueryBuilder Result
      */
-    protected function queryAll($album)
+    protected function queryAll()
     {
         $queryBuilder = $this->db->createQueryBuilder();
 
-        return $queryBuilder->select('a.artist', 'a.title', 'a.year')
-            ->from('albums', 'a')
-            ->setParameter(':comp', $album, \PDO::PARAM_STR);
+        return $queryBuilder->select('a.artist', 'a.album', 'a.year')
+            ->from('albums', 'a');
     }
 
     /**
@@ -68,20 +67,26 @@ class AlbumRepository
      */
     public function findAllPaginated($page = 1)
     {
-        $queryBuilder = $this->queryAll();
-        $queryBuilder->setFirstResult(($page - 1) * static::NUM_ITEMS)
-            ->setMaxResults(static::NUM_ITEMS);
+        $countQueryBuilder = $this->queryAll($page)
+        /*$queryBuilder->setFirstResult(($page - 1) * static::NUM_ITEMS)
+            ->setMaxResults(static::NUM_ITEMS);*/
+        ->select('COUNT(DISTINCT a.id) AS total_results')
+            ->setMaxResults(1);
 
-        $pagesNumber = $this->countAllPages();
+        $paginator = new Paginator($this->queryAll($page), $countQueryBuilder);
+        $paginator->setCurrentPage($page);
+        $paginator->setMaxPerPage(static::NUM_ITEMS);
+
+        /*$pagesNumber = $this->countAllPages();
 
         $paginator = [
             'page' => ($page < 1 || $page > $pagesNumber) ? 1 : $page,
             'max_results' => static::NUM_ITEMS,
             'pages_number' => $pagesNumber,
             'data' => $queryBuilder->execute()->fetchAll(),
-        ];
+        ];*/
 
-        return $paginator;
+        return $paginator->getCurrentPageResults();
     }
 
     /**

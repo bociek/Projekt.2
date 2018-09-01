@@ -7,6 +7,7 @@ namespace Controller;
 
 use Silex\Application;
 use Silex\Api\ControllerProviderInterface;
+use Repository\PodcastRepository;
 
 class PodcastController implements ControllerProviderInterface
 {
@@ -19,5 +20,15 @@ class PodcastController implements ControllerProviderInterface
         $controller->get('/', [$this, 'indexAction'])->bind('podcast_index');
 
         return $controller;
+    }
+
+    public function indexAction(Application $app, $page = 1)
+    {
+        $podcastRepository = new PodcastRepository($app['db']);
+
+        return $app['twig']->render(
+            'podcasts/index.html.twig',
+            ['paginator' => $podcastRepository->findAllPaginated($page)]
+        );
     }
 }
