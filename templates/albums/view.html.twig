@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    {{ 'title.album.id'|trans }}
+    {{ 'title.album_id'|trans }}
 {% endblock %}
 
 {% block body %}
@@ -21,7 +21,7 @@
         {{ 'table.albums_view'|trans }}
     </h1>
 
-    {% if paginator.data is defined and paginator.data|length %}
+    {% if album is defined and album|length %}
     <table>
     <tr>
         <th>{{ 'table.track_id'|trans }} </th>
@@ -29,7 +29,7 @@
         <th>{{ 'table.album'|trans }} </th>
         <th>{{ 'table.artist'|trans }} </th>
     </tr>
-    {% for row in paginator.data %}
+    {% for row in album %}
         <tr>
             <td>{{ row.track_id }}</td>
             <td>{{ row.title }}</td>

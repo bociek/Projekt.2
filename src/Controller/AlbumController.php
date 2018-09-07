@@ -23,7 +23,7 @@ class AlbumController implements ControllerProviderInterface
         $controller = $app['controllers_factory'];
         $controller->get('/', [$this, 'indexAction'])
             ->bind('album_index');
-        $controller->get('/display', [$this, 'showAction'])
+        $controller->get('/{id}/display', [$this, 'showAction'])
             ->bind('album_display');
 
         return $controller;
@@ -110,15 +110,14 @@ class AlbumController implements ControllerProviderInterface
      * @param Application $app
      * @return mixed
      */
-    public function showAction(Application $app)
+    public function showAction(Application $app, $id)
     {
         $albumRepository = new AlbumRepository($app['db']);
 
-        dump($albumRepository->showAlbum());
-
         return $app['twig']->render(
             'albums/view.html.twig',
-            ['paginator' => $albumRepository->showAlbum()]
+            ['album' => $albumRepository->showAlbum($id)]
+            /*['paginator' => $albumRepository->showAlbum($id)]*/
         );
 
     }

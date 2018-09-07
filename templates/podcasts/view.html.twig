@@ -20,7 +20,7 @@
         {{ 'table.podcasts_view'|trans }}
     </h1>
 
-    {% if paginator.data is defined and paginator.data|length %}
+    {% if podcast is defined and podcast|length %}
         <table>
             <tr>
                 <th>{{ 'table.episode_id'|trans }} </th>
@@ -28,7 +28,7 @@
                 <th>{{ 'table.title'|trans }} </th>
                 <th>{{ 'table.author'|trans }} </th>
             </tr>
-            {% for row in paginator.data %}
+            {% for row in podcast %}
                 <tr>
                     <td>{{ row.episode_id }}</td>
                     <td>{{ row.episode_title }}</td>

@@ -20,7 +20,7 @@
         {{ 'table.audiobooks_view'|trans }}
     </h1>
 
-    {% if paginator.data is defined and paginator.data|length %}
+    {% if audiobook is defined and audiobook|length %}
         <table>
             <tr>
                 <th>{{ 'table.chapter_id'|trans }} </th>
@@ -28,7 +28,7 @@
                 <th>{{ 'table.title'|trans }} </th>
                 <th>{{ 'table.author'|trans }} </th>
             </tr>
-            {% for row in paginator.data %}
+            {% for row in audiobook %}
                 <tr>
                     <td>{{ row.chapter_id }}</td>
                     <td>{{ row.chapter_title }}</td>

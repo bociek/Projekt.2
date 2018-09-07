@@ -15,7 +15,7 @@ class AlbumRepository
      *
      * const int NUM_ITEMS
      */
-    const NUM_ITEMS = 30;
+    const NUM_ITEMS = 100;
     /**
      * Doctrine DBAL connection.
      *
@@ -54,9 +54,10 @@ class AlbumRepository
     {
         $queryBuilder = $this->db->createQueryBuilder();
 
-        return $queryBuilder->select( 's.artist', 's.album', 's.year')
+        return $queryBuilder->select( 's.album_id', 's.artist', 'a.album', 's.year')
             ->from('songs', 's')
-            ->groupBy('s.album');
+            ->innerJoin('s', 'albums', 'a', 's.album_id=a.id')
+            ->groupBy('s.album_id');
 
     }
 
@@ -132,12 +133,15 @@ class AlbumRepository
         return !$result ? [] : $result;
     }
 
-    public function showAlbum()
+    public function showAlbum($id)
     {
         $queryBuilder = $this->db->createQueryBuilder();
 
-        $queryBuilder->select('s.track_id', 's.title', 's.album', 's.artist')
-            ->from('songs', 's');
+        $queryBuilder->select('s.track_id', 's.title', 'a.album', 's.artist')
+            ->from('songs', 's')
+            ->innerJoin('s', 'albums', 'a', 's.album_id=a.id')
+            ->where('s.album_id = :id')
+            ->setParameter(':id', $id, \PDO::PARAM_INT);
 
         return $queryBuilder->execute()->fetchAll();
     }

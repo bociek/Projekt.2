@@ -9,6 +9,7 @@ use Controller\HomepageController;
 use Controller\AlbumController;
 use Controller\AudiobookController;
 use Controller\PodcastController;
+use Controller\AuthController;
 
 //Request::setTrustedProxies(array('127.0.0.1'));
 
@@ -38,3 +39,5 @@ $app->mount('/', new HomepageController());
 $app->mount('/albums', new AlbumController());
 $app->mount('/audiobooks', new AudiobookController());
 $app->mount('/podcasts', new PodcastController());
+$app->mount('/auth', new AuthController());
+/*$app->mount('/register', new \Controller\RegisterController());*/

@@ -54,9 +54,10 @@ class PodcastRepository
     {
         $queryBuilder = $this->db->createQueryBuilder();
 
-        return $queryBuilder->select('p.author', 'p.title', 'p.year')
-            ->from('podcasts', 'p')
-            ->groupBy('p.title');
+        return $queryBuilder->select( 'e.title_id', 'e.author', 'p.title', 'e.year')
+            ->from('episodes', 'e')
+            ->innerJoin('e', 'podcasts', 'p', 'e.title_id=p.id')
+            ->groupBy('e.title_id');
     }
 
     public function findAllPaginated($page = 1)
@@ -91,12 +92,15 @@ class PodcastRepository
         return $pagesNumber;
     }
 
-    public function showEpisodes()
+    public function showEpisodes($id)
     {
         $queryBuilder = $this->db->createQueryBuilder();
 
-        $queryBuilder->select('p.episode_id', 'p.episode_title', 'p.title', 'p.author')
-            ->from('podcasts', 'p');
+        $queryBuilder->select('e.episode_id', 'e.episode_title', 'p.title', 'e.author')
+            ->from('episodes', 'e')
+            ->innerJoin('e', 'podcasts', 'p', 'e.title_id=p.id')
+            ->where('e.title_id = :id')
+            ->setParameter(':id', $id, \PDO::PARAM_INT);
 
         return $queryBuilder->execute()->fetchAll();
     }

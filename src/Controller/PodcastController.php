@@ -19,7 +19,7 @@ class PodcastController implements ControllerProviderInterface
         $controller = $app['controllers_factory'];
         $controller->get('/', [$this, 'indexAction'])
             ->bind('podcast_index');
-        $controller->get('/display', [$this, 'showAction'])
+        $controller->get('/{id}/display', [$this, 'showAction'])
             ->bind('podcast_display');
 
         return $controller;
@@ -41,15 +41,14 @@ class PodcastController implements ControllerProviderInterface
      * @param Application $app
      * @return mixed
      */
-    public function showAction(Application $app)
+    public function showAction(Application $app, $id)
     {
         $podcastRepository = new PodcastRepository($app['db']);
 
-        dump($podcastRepository->showEpisodes());
-
         return $app['twig']->render(
             'podcasts/view.html.twig',
-            ['paginator' => $podcastRepository->showEpisodes()]
+            ['podcast' => $podcastRepository->showEpisodes($id)]
+            /*['paginator' => $podcastRepository->showEpisodes()]*/
         );
 
     }

@@ -18,7 +18,7 @@ class AudiobookController implements ControllerProviderInterface
         $controller = $app['controllers_factory'];
         $controller->get('/', [$this, 'indexAction'])
             ->bind('audiobook_index');
-        $controller->get('/display', [$this, 'showAction'])
+        $controller->get('/{id}/display', [$this, 'showAction'])
             ->bind('audiobook_display');
 
         return $controller;
@@ -34,15 +34,14 @@ class AudiobookController implements ControllerProviderInterface
         );
     }
 
-    public function showAction(Application $app)
+    public function showAction(Application $app, $id)
     {
         $audiobookRepository = new AudiobookRepository($app['db']);
 
-        dump($audiobookRepository->showChapters());
-
         return $app['twig']->render(
             'audiobooks/view.html.twig',
-            ['paginator' => $audiobookRepository->showChapters()]
+            ['audiobook' => $audiobookRepository->showChapters($id)]
+            /*['paginator' => $audiobookRepository->showChapters()]*/
         );
 
     }

@@ -6,6 +6,12 @@
 
 {% block body %}
 
+   {# {% include 'default/_paginator.html.twig' with {
+        paginator: paginator,
+        route_name: 'album_index',
+    } %}#}
+
+
     <style>
         table {border: 4px solid #8959A8;}
         th, td {
@@ -30,7 +36,7 @@
             {% for row in paginator.data %}
                 <tr>
                     <td>{{ row.artist }}</td>
-                    <td><a href="view.html.twig">{{ row.album }}</a></td>
+                    <td><a href= "{{ url('album_display', {'id': row.album_id}) }}">{{ row.album }}</a></td>
                     <td id="year">{{ row.year }}</td>
                 </tr>
             {% endfor %}

@@ -54,15 +54,16 @@ class AudiobookRepository
     {
         $queryBuilder = $this->db->createQueryBuilder();
 
-        return $queryBuilder->select('u.author', 'u.title', 'u.year')
-            ->from('audiobooks', 'u')
-            ->groupBy('u.title');
+        return $queryBuilder->select( 'c.title_id', 'c.author', 'u.title', 'c.year')
+            ->from('chapters', 'c')
+            ->innerJoin('c', 'audiobooks', 'u', 'c.title_id=u.id')
+            ->groupBy('c.title_id');
     }
 
     public function findAllPaginated($page = 1)
     {
         $countQueryBuilder = $this->queryAll()
-            ->select('COUNT(DISTINCT u.id) AS total_results')
+            ->select('COUNT(DISTINCT c.id) AS total_results')
             ->setMaxResults(1);
 
         $paginator = new Paginator($this->queryAll(), $countQueryBuilder);
@@ -77,7 +78,7 @@ class AudiobookRepository
         $pagesNumber = 1;
 
         $queryBuilder = $this->queryAll();
-        $queryBuilder->select('COUNT(DISTINCT u.id) AS total_results')
+        $queryBuilder->select('COUNT(DISTINCT c.id) AS total_results')
             ->setMaxResults(1);
 
         $result = $queryBuilder->execute()->fetch();
@@ -91,12 +92,15 @@ class AudiobookRepository
         return $pagesNumber;
     }
 
-    public function showChapters()
+    public function showChapters($id)
     {
-        $queryBuilder = $this->db->createQueryBuilder();
+        $queryBuilder = $this->db->createQueryBuilder($id);
 
-        $queryBuilder->select('u.chapter_id', 'u.chapter_title', 'u.title', 'u.author')
-             ->from('audiobooks', 'u');
+        $queryBuilder->select('c.chapter_id', 'c.chapter_title', 'u.title', 'c.author')
+            ->from('chapters', 'c')
+            ->innerJoin('c', 'audiobooks', 'u', 'c.title_id=u.id')
+            ->where('c.title_id = :id')
+            ->setParameter(':id', $id, \PDO::PARAM_INT);
 
         return $queryBuilder->execute()->fetchAll();
     }

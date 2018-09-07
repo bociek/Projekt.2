@@ -67,9 +67,29 @@
                 <target>Cast</target>
             </trans-unit>
 
+            <trans-unit id="table.chapter_title">
+                <source>table.chapter_title</source>
+                <target>Chapter title</target>
+            </trans-unit>
+
+            <trans-unit id="table.chapter_id">
+                <source>table.chapter_id</source>
+                <target>Chapter ID</target>
+            </trans-unit>
+
             <trans-unit id="table.cover">
                 <source>table.cover</source>
                 <target>Album cover</target>
+            </trans-unit>
+
+            <trans-unit id="table.episode_title">
+                <source>table.episode_title</source>
+                <target>Episode title</target>
+            </trans-unit>
+
+            <trans-unit id="table.episode_id">
+                <source>table.episode_id</source>
+                <target>Episode ID</target>
             </trans-unit>
 
             <trans-unit id="table.title">
@@ -90,6 +110,41 @@
             <trans-unit id="table.year">
                 <source>table.year</source>
                 <target>Year</target>
+            </trans-unit>
+
+            <trans-unit id="table.albums_view">
+                <source>table.albums_view</source>
+                <target>Tracklist</target>
+            </trans-unit>
+
+            <trans-unit id="table.audiobooks_view">
+            <source>table.audiobooks_view</source>
+            <target>Table of contents</target>
+        </trans-unit>
+
+            <trans-unit id="table.podcasts_view">
+                <source>table.podcasts_view</source>
+                <target>List of episodes</target>
+            </trans-unit>
+
+            <trans-unit id="table.track_id">
+                <source>table.track_id</source>
+                <target>Track ID</target>
+            </trans-unit>
+
+            <trans-unit id="title.view_audiobooks">
+                <source>title.view_audiobooks</source>
+                <target>Chapters</target>
+            </trans-unit>
+
+            <trans-unit id="title.view_podcasts">
+                <source>title.view_podcasts</source>
+                <target>Episodes</target>
+            </trans-unit>
+
+            <trans-unit id="title.album_id">
+                <source>title.album_id</source>
+                <target>Songs</target>
             </trans-unit>
         </body>
     </file>

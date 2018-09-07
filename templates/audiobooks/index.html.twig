@@ -30,7 +30,7 @@
             {% for row in paginator.data %}
                 <tr>
                     <td>{{ row.author }}</td>
-                    <td><a href="view.html.twig">{{ row.title }}</a></td>
+                    <td><a href= "{{ url('audiobook_display', {'id': row.title_id}) }}">{{ row.title }}</a></td>
                     <td id="year">{{ row.year }}</td>
                 </tr>
             {% endfor %}

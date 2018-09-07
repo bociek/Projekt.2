@@ -91,6 +91,61 @@
                 <source>table.year</source>
                 <target>Rok</target>
             </trans-unit>
+
+            <trans-unit id="table.chapter_title">
+                <source>table.chapter_title</source>
+                <target>Tytuł rozdziału</target>
+            </trans-unit>
+
+            <trans-unit id="table.episode_title">
+                <source>table.episode_title</source>
+                <target>Tytuł odcinka</target>
+            </trans-unit>
+
+            <trans-unit id="table.chapter_id">
+                <source>table.chapter_id</source>
+                <target>Numer rozdziału</target>
+            </trans-unit>
+
+            <trans-unit id="table.episode_id">
+                <source>table.episode_id</source>
+                <target>Numer odcinka</target>
+            </trans-unit>
+
+            <trans-unit id="table.albums_view">
+                <source>table.albums_view</source>
+                <target>Lista utworów</target>
+            </trans-unit>
+
+            <trans-unit id="table.audiobooks_view">
+                <source>table.audiobooks_view</source>
+                <target>Spis rozdziałów</target>
+            </trans-unit>
+
+            <trans-unit id="table.podcasts_view">
+                <source>table.podcasts_view</source>
+                <target>Lista odcinków</target>
+            </trans-unit>
+
+            <trans-unit id="table.track_id">
+                <source>table.track_id</source>
+                <target>Numer piosenki</target>
+            </trans-unit>
+
+            <trans-unit id="title.view_audiobooks">
+                <source>title.view_audiobooks</source>
+                <target>Rozdziały</target>
+            </trans-unit>
+
+            <trans-unit id="title.view_podcasts">
+                <source>title.view_podcasts</source>
+                <target>Odcinki</target>
+            </trans-unit>
+
+            <trans-unit id="title.album_id">
+                <source>title.album_id</source>
+                <target>Piosenki</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
