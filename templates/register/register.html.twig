@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {% form_theme form with ['bootstrap_3_horizontal_layout.html.twig', 'form/form_errors.html.twig'] %}
+    <h1>{{ 'title.register'|trans }}</h1>
+
+        {{ form_start(form, { method: 'post', action: url('auth_register') }) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="{{ 'action.register'|trans }}" class="btn btn-success" />
+        {{ form_end(form) }}
+
+    <h3>
+        <li><a href="{{ url('homepage') }}">{{ 'homepage.back.label'|trans }}</a></li>
+    </h3>
+{% endblock %}

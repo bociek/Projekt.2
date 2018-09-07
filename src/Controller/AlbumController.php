@@ -37,6 +37,8 @@ class AlbumController implements ControllerProviderInterface
     {
         $albumRepository = new AlbumRepository($app['db']);
 
+        /*dump($app['security.encoder.bcrypt']->encodePassword('qwerty123', ''));*/
+
         return $app['twig']->render(
             'albums/index.html.twig',
             ['paginator' => $albumRepository->findAllPaginated($page)]

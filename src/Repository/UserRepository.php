@@ -118,4 +118,42 @@ class UserRepository
             return $roles;
         }
     }
+
+    /**
+     * Register user
+     */
+    public function registerUser($user_data)
+    {
+        try {
+
+            $this->db->beginTransaction();
+
+            $queryBuilder = $this->db->createQueryBuilder();
+            $queryBuilder->insert('users', [
+                'login' => $user_data['login'],
+                'password' => $user_data['password']
+            ]);
+
+            $id = $this->db->lastInsertId();
+
+            $queryBuilder->insert('user_data', [
+                'fname' => $user_data['fname'],
+                'lname' => $user_data['lname'],
+                'email' => $user_data['email'],
+                'bday' => $user_data['bday'],
+                'country' => $user_data['country'],
+                'user_id' => $id
+            ]);
+
+            $queryBuilder->insert('roles', [
+                'id' => 2
+            ]);
+
+            $this->db->commit();
+
+        } catch (DBALException $exception) {
+            throw $exception;
+        }
+        return $user_data;
+    }
 }

@@ -12,7 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 /**
@@ -26,7 +26,7 @@ class RegisterType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add(
-            'firstname',
+            'fname',
             TextType::class,
             [
                 'label' => 'label.fname',
@@ -34,17 +34,35 @@ class RegisterType extends AbstractType
                 'attr' => [
                     'max_length' => 128,
                 ],
+                'constraints' => [
+                    new Assert\NotBlank(),
+                    new Assert\Length(
+                        [
+                            'min' => 3,
+                            'max' => 12,
+                        ]
+                    ),
+                ],
             ]
         );
 
         $builder->add(
-            'lastname',
+            'lname',
             TextType::class,
             [
                 'label' => 'label.lname',
                 'required' => true,
                 'attr' => [
                     'max_length' => 128,
+                ],
+                'constraints' => [
+                    new Assert\NotBlank(),
+                    new Assert\Length(
+                        [
+                            'min' => 3,
+                            'max' => 12,
+                        ]
+                    ),
                 ],
             ]
         );
@@ -72,5 +90,85 @@ class RegisterType extends AbstractType
                 ],
             ]
         );
+
+        $builder->add(
+            'bday',
+            BirthdayType::class,
+            [
+                'label' => 'label.bday',
+                'required' => false,
+                'attr' => [
+                    'max_length' => 128,
+                ],
+            ]
+        );
+
+        $builder->add(
+            'country',
+            CountryType::class,
+            [
+                'label' => 'label.country',
+                'required' => false,
+                'attr' => [
+                    'max_length' => 128,
+                ],
+            ]
+        );
+
+        $builder->add(
+            'login',
+            TextType::class,
+            [
+                'label' => 'label.login',
+                'required' => true,
+                'attr' => [
+                    'max_length' => 32,
+                    'class' => 'form-row'
+
+                ],
+                'constraints' => [
+                    new Assert\NotBlank(),
+                    new Assert\Length(
+                        [
+                            'min' => 5,
+                            'max' => 32,
+                        ]
+                    ),
+                ],
+            ]
+        );
+
+        $builder->add(
+            'password',
+            RepeatedType::class,
+            [
+                'type' => PasswordType::class,
+                'first_options' => array('label' => 'label.password'),
+                'second_options' => array('label' => 'label.repeatPassword'),
+                'required' => true,
+                'attr' => [
+                    'max_length' => 32,
+                    'class' => 'form-row'
+
+                ],
+                'constraints' => [
+                    new Assert\NotBlank(),
+                    new Assert\Length(
+                        [
+                            'min' => 8,
+                            'max' => 32,
+                        ]
+                    ),
+                ],
+            ]
+        );
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getBlockPrefix()
+    {
+        return 'register_type';
     }
 }

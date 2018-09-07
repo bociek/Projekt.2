@@ -146,6 +146,121 @@
                 <source>title.album_id</source>
                 <target>Songs</target>
             </trans-unit>
+
+            <trans-unit id="auth.login.label">
+                <source>auth.login.label</source>
+                <target>Log in</target>
+            </trans-unit>
+
+            <trans-unit id="auth.register.label">
+                <source>auth.register.label</source>
+                <target>Register</target>
+            </trans-unit>
+
+            <trans-unit id="auth.logout.label">
+                <source>auth.login.label</source>
+                <target>Log out</target>
+            </trans-unit>
+
+            <trans-unit id="title.auth_login">
+            <source>title.auth_login</source>
+            <target>Sign me up!</target>
+            </trans-unit>
+
+            <trans-unit id="label.login">
+                <source>label.login</source>
+                <target>Insert login</target>
+            </trans-unit>
+
+            <trans-unit id="label.password">
+                <source>label.password</source>
+                <target>Insert password</target>
+            </trans-unit>
+
+            <trans-unit id="label.repeatPassword">
+                <source>label.repeatPassword</source>
+                <target>Repeat password</target>
+            </trans-unit>
+
+            <trans-unit id="action.login">
+                <source>action.login</source>
+                <target>Log me in!</target>
+            </trans-unit>
+
+            <trans-unit id="label.actions">
+                <source>label.actions</source>
+                <target>Action</target>
+            </trans-unit>
+
+            <trans-unit id="label.country">
+                <source>label.country</source>
+                <target>Country</target>
+            </trans-unit>
+
+            <trans-unit id="label.bday">
+                <source>label.bday</source>
+                <target>Birthday</target>
+            </trans-unit>
+
+            <trans-unit id="label.email">
+                <source>label.email</source>
+                <target>Email</target>
+            </trans-unit>
+
+            <trans-unit id="label.lname">
+                <source>label.lname</source>
+                <target>Last name</target>
+            </trans-unit>
+
+            <trans-unit id="label.fname">
+                <source>label.fname</source>
+                <target>First name</target>
+            </trans-unit>
+
+            <trans-unit id="homepage.back.label">
+                <source>homepage.back.label</source>
+                <target>Back to the homepage</target>
+            </trans-unit>
+
+            <trans-unit id="index.back.label">
+                <source>index.back.label</source>
+                <target>Back to the previous page</target>
+            </trans-unit>
+
+            <trans-unit id="message.registration_complete">
+                <source>message.registration_complete</source>
+                <target>You registered successfully!</target>
+            </trans-unit>
+
+            <trans-unit id="Bad credentials.">
+                <source>Bad credentials.</source>
+                <target>Bad credentials.</target>
+            </trans-unit>
+
+            <trans-unit id="title.register">
+                <source>title.register</source>
+                <target>Registration</target>
+            </trans-unit>
+
+            <trans-unit id="action.register">
+                <source>action.register</source>
+                <target>Register</target>
+            </trans-unit>
+
+            <trans-unit id="Year">
+                <source>Year</source>
+                <target>Year</target>
+            </trans-unit>
+
+            <trans-unit id="Month">
+                <source>Month</source>
+                <target>Month</target>
+            </trans-unit>
+
+            <trans-unit id="Day">
+                <source>Day</source>
+                <target>Day</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

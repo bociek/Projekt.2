@@ -93,6 +93,7 @@ $app->register(
         ],
         'security.access_rules' => [
             ['^/auth.+$', 'IS_AUTHENTICATED_ANONYMOUSLY'],
+            ['^/register', 'IS_AUTHENTICATED_ANONYMOUSLY'],
             ['^/.+$', 'ROLE_USER'],
             ['^/.+$', 'ROLE_ADMIN'],
         ],

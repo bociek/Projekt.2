@@ -146,6 +146,121 @@
                 <source>title.album_id</source>
                 <target>Piosenki</target>
             </trans-unit>
+
+            <trans-unit id="auth.login.label">
+                <source>auth.login.label</source>
+                <target>Zaloguj się</target>
+            </trans-unit>
+
+            <trans-unit id="auth.register.label">
+                <source>auth.register.label</source>
+                <target>Zarejestruj się</target>
+            </trans-unit>
+
+            <trans-unit id="title.auth_login">
+                <source>title.auth_login</source>
+                <target>Logowanie</target>
+            </trans-unit>
+
+            <trans-unit id="auth.logout.label">
+                <source>auth.logout.label</source>
+                <target>Wyloguj mnie, proszę!</target>
+            </trans-unit>
+
+            <trans-unit id="label.login">
+                <source>label.login</source>
+                <target>Wprowadź login</target>
+            </trans-unit>
+
+            <trans-unit id="label.password">
+                <source>label.password</source>
+                <target>Wprowadź hasło</target>
+            </trans-unit>
+
+            <trans-unit id="label.repeatPassword">
+                <source>label.repeatPassword</source>
+                <target>Powtórz hasło</target>
+            </trans-unit>
+
+            <trans-unit id="action.login">
+                <source>action.login</source>
+                <target>Zaloguj mnie!</target>
+            </trans-unit>
+
+            <trans-unit id="label.actions">
+                <source>label.actions</source>
+                <target>Akcja</target>
+            </trans-unit>
+
+            <trans-unit id="label.country">
+                <source>label.country</source>
+                <target>Wybierz kraj</target>
+            </trans-unit>
+
+            <trans-unit id="label.bday">
+                <source>label.bday</source>
+                <target>Wprowadź datę urodzenia</target>
+            </trans-unit>
+
+            <trans-unit id="label.email">
+                <source>label.email</source>
+                <target>Wprowadź email</target>
+            </trans-unit>
+
+            <trans-unit id="label.lname">
+                <source>label.lname</source>
+                <target>Wprowadź nazwisko</target>
+            </trans-unit>
+
+            <trans-unit id="label.fname">
+                <source>label.fname</source>
+                <target>Wprowadź imię</target>
+            </trans-unit>
+
+            <trans-unit id="homepage.back.label">
+                <source>homepage.back.label</source>
+                <target>Powrót do strony głównej</target>
+            </trans-unit>
+
+            <trans-unit id="index.back.label">
+                <source>index.back.label</source>
+                <target>Powrót do poprzedniej strony</target>
+            </trans-unit>
+
+            <trans-unit id="message.registration_complete">
+                <source>message.registration_complete</source>
+                <target>Rejestracja przebiegła pomyślnie!</target>
+            </trans-unit>
+
+            <trans-unit id="Bad credentials.">
+                <source>Bad credentials.</source>
+                <target>Niepoprawne dane.</target>
+            </trans-unit>
+
+            <trans-unit id="title.register">
+                <source>title.register</source>
+                <target>Rejestracja nowego użytkownika</target>
+            </trans-unit>
+
+            <trans-unit id="action.register">
+                <source>action.register</source>
+                <target>Zarejestruj mnie!</target>
+            </trans-unit>
+
+            <trans-unit id="Year">
+                <source>Year</source>
+                <target>Rok</target>
+            </trans-unit>
+
+            <trans-unit id="Month">
+                <source>Month</source>
+                <target>Miesiąc</target>
+            </trans-unit>
+
+            <trans-unit id="Day">
+                <source>Day</source>
+                <target>Dzień</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

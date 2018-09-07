@@ -6,17 +6,6 @@
 
 {% block body %}
 
-    <style>
-        table {border: 4px solid #8959A8;}
-        th, td {
-            border: 2px solid #8959A8;
-            text-align: center;
-            background-color: plum;
-            font-family: sans-serif;
-            color: white}
-        #year {padding: 0 5px 0 5px}
-    </style>
-
     <h1>
         {{ 'table.podcasts'|trans }}
     </h1>
@@ -40,5 +29,9 @@
             List is empty!
         </div>
     {% endif %}
+
+    <h3>
+        <li><a href="{{ url('homepage') }}">{{ 'homepage.back.label'|trans }}</a></li>
+    </h3>
 
 {% endblock %}

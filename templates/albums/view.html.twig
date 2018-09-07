@@ -6,17 +6,6 @@
 
 {% block body %}
 
-    <style>
-        h2 {align-items: right;}
-        table {border: 4px solid #8959A8;}
-        th, td {
-            border: 2px solid #8959A8;
-            text-align: center;
-            background-color: plum;
-            font-family: sans-serif;
-            color: white}
-    </style>
-
     <h1>
         {{ 'table.albums_view'|trans }}
     </h1>
@@ -26,15 +15,15 @@
     <tr>
         <th>{{ 'table.track_id'|trans }} </th>
         <th>{{ 'table.title'|trans }} </th>
-        <th>{{ 'table.album'|trans }} </th>
-        <th>{{ 'table.artist'|trans }} </th>
+       {# <th>{{ 'table.album'|trans }} </th>
+        <th>{{ 'table.artist'|trans }} </th>#}
     </tr>
     {% for row in album %}
         <tr>
             <td>{{ row.track_id }}</td>
             <td>{{ row.title }}</td>
-            <td>{{ row.album }}</td>
-            <td>{{ row.artist }}</td>
+           {# <td>{{ row.album }}</td>
+            <td>{{ row.artist }}</td>#}
         </tr>
     {% endfor %}
     </table>
@@ -43,5 +32,12 @@
             List is empty!
         </div>
     {% endif %}
+
+    <h3>
+        <li><a href="{{ url('album_index') }}">{{ 'index.back.label'|trans }}</a></li>
+    </h3>
+    <h3>
+        <li><a href="{{ url('homepage') }}">{{ 'homepage.back.label'|trans }}</a></li>
+    </h3>
 
 {% endblock %}
