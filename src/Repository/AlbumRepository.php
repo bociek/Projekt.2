@@ -1,6 +1,6 @@
 <?php
 /**
- * Albums Repository.
+ * Album Repository.
  */
 
 namespace Repository;
@@ -15,7 +15,7 @@ class AlbumRepository
      *
      * const int NUM_ITEMS
      */
-    const NUM_ITEMS = 15;
+    const NUM_ITEMS = 30;
     /**
      * Doctrine DBAL connection.
      *
@@ -54,8 +54,10 @@ class AlbumRepository
     {
         $queryBuilder = $this->db->createQueryBuilder();
 
-        return $queryBuilder->select('a.artist', 'a.album', 'a.year')
-            ->from('albums', 'a');
+        return $queryBuilder->select( 's.artist', 's.album', 's.year')
+            ->from('songs', 's')
+            ->groupBy('s.album');
+
     }
 
     /**
@@ -70,7 +72,7 @@ class AlbumRepository
         $countQueryBuilder = $this->queryAll($page)
         /*$queryBuilder->setFirstResult(($page - 1) * static::NUM_ITEMS)
             ->setMaxResults(static::NUM_ITEMS);*/
-        ->select('COUNT(DISTINCT a.id) AS total_results')
+        ->select('COUNT(DISTINCT s.id) AS total_results')
             ->setMaxResults(1);
 
         $paginator = new Paginator($this->queryAll($page), $countQueryBuilder);
@@ -99,7 +101,7 @@ class AlbumRepository
         $pagesNumber = 1;
 
         $queryBuilder = $this->queryAll();
-        $queryBuilder->select('COUNT(DISTINCT t.id) AS total_results')
+        $queryBuilder->select('COUNT(DISTINCT s.id) AS total_results')
             ->setMaxResults(1);
 
         $result = $queryBuilder->execute()->fetch();
@@ -111,6 +113,33 @@ class AlbumRepository
         }
 
         return $pagesNumber;
+    }
+
+    /**
+     * Find one record.
+     *
+     * @param string $id Element id
+     *
+     * @return array|mixed Result
+     */
+    public function findOneById($id)
+    {
+        $queryBuilder = $this->queryAll();
+        $queryBuilder->where('t.id = :id')
+            ->setParameter(':id', $id, \PDO::PARAM_INT);
+        $result = $queryBuilder->execute()->fetch();
+
+        return !$result ? [] : $result;
+    }
+
+    public function showAlbum()
+    {
+        $queryBuilder = $this->db->createQueryBuilder();
+
+        $queryBuilder->select('s.track_id', 's.title', 's.album', 's.artist')
+            ->from('songs', 's');
+
+        return $queryBuilder->execute()->fetchAll();
     }
 
 }

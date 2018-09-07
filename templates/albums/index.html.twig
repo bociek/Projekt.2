@@ -6,23 +6,32 @@
 
 {% block body %}
 
+    <style>
+        table {border: 4px solid #8959A8;}
+        th, td {
+            border: 2px solid #8959A8;
+            text-align: center;
+            background-color: plum;
+            font-family: sans-serif;
+            color: white}
+        #year {padding: 0 5px 0 5px}
+    </style>
+
     <h1>
         {{ 'table.albums'|trans }}
     </h1>
     {% if paginator.data is defined and paginator.data|length %}
         <table>
             <tr>
-                <th>{{ 'table.id'|trans }} </th>
                 <th>{{ 'table.artist'|trans }} </th>
                 <th>{{ 'table.album'|trans }} </th>
                 <th>{{ 'table.year'|trans }} </th>
             </tr>
             {% for row in paginator.data %}
                 <tr>
-                    {#<td>{{ row.id }}</td>#}
                     <td>{{ row.artist }}</td>
-                    <td>{{ row.album }}</td>
-                    <td>{{ row.year }}</td>
+                    <td><a href="view.html.twig">{{ row.album }}</a></td>
+                    <td id="year">{{ row.year }}</td>
                 </tr>
             {% endfor %}
         </table>
@@ -31,5 +40,9 @@
             List is empty!
         </div>
     {% endif %}
+
+    {#<h3>
+        <a href="">{{ 'title.homepage_back'|trans }}</a>
+    </h3>#}
 
 {% endblock %}

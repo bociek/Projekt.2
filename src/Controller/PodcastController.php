@@ -17,7 +17,10 @@ class PodcastController implements ControllerProviderInterface
     public function connect(Application $app)
     {
         $controller = $app['controllers_factory'];
-        $controller->get('/', [$this, 'indexAction'])->bind('podcast_index');
+        $controller->get('/', [$this, 'indexAction'])
+            ->bind('podcast_index');
+        $controller->get('/display', [$this, 'showAction'])
+            ->bind('podcast_display');
 
         return $controller;
     }
@@ -31,4 +34,24 @@ class PodcastController implements ControllerProviderInterface
             ['paginator' => $podcastRepository->findAllPaginated($page)]
         );
     }
+
+    /**
+     * Show action.
+     *
+     * @param Application $app
+     * @return mixed
+     */
+    public function showAction(Application $app)
+    {
+        $podcastRepository = new PodcastRepository($app['db']);
+
+        dump($podcastRepository->showEpisodes());
+
+        return $app['twig']->render(
+            'podcasts/view.html.twig',
+            ['paginator' => $podcastRepository->showEpisodes()]
+        );
+
+    }
+
 }

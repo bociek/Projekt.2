@@ -54,8 +54,9 @@ class PodcastRepository
     {
         $queryBuilder = $this->db->createQueryBuilder();
 
-        return $queryBuilder->select('p.author', 'p.title', 'p.cast', 'p.year')
-            ->from('podcasts', 'p');
+        return $queryBuilder->select('p.author', 'p.title', 'p.year')
+            ->from('podcasts', 'p')
+            ->groupBy('p.title');
     }
 
     public function findAllPaginated($page = 1)
@@ -88,5 +89,15 @@ class PodcastRepository
         }
 
         return $pagesNumber;
+    }
+
+    public function showEpisodes()
+    {
+        $queryBuilder = $this->db->createQueryBuilder();
+
+        $queryBuilder->select('p.episode_id', 'p.episode_title', 'p.title', 'p.author')
+            ->from('podcasts', 'p');
+
+        return $queryBuilder->execute()->fetchAll();
     }
 }

@@ -55,16 +55,17 @@ class AudiobookRepository
         $queryBuilder = $this->db->createQueryBuilder();
 
         return $queryBuilder->select('u.author', 'u.title', 'u.year')
-            ->from('audiobooks', 'u');
+            ->from('audiobooks', 'u')
+            ->groupBy('u.title');
     }
 
     public function findAllPaginated($page = 1)
     {
-        $countQueryBuilder = $this->queryAll($page)
+        $countQueryBuilder = $this->queryAll()
             ->select('COUNT(DISTINCT u.id) AS total_results')
             ->setMaxResults(1);
 
-        $paginator = new Paginator($this->queryAll($page), $countQueryBuilder);
+        $paginator = new Paginator($this->queryAll(), $countQueryBuilder);
         $paginator->setCurrentPage($page);
         $paginator->setMaxPerPage(static::NUM_ITEMS);
 
@@ -89,4 +90,15 @@ class AudiobookRepository
 
         return $pagesNumber;
     }
+
+    public function showChapters()
+    {
+        $queryBuilder = $this->db->createQueryBuilder();
+
+        $queryBuilder->select('u.chapter_id', 'u.chapter_title', 'u.title', 'u.author')
+             ->from('audiobooks', 'u');
+
+        return $queryBuilder->execute()->fetchAll();
+    }
+
 }

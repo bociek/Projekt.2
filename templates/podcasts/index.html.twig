@@ -6,25 +6,32 @@
 
 {% block body %}
 
+    <style>
+        table {border: 4px solid #8959A8;}
+        th, td {
+            border: 2px solid #8959A8;
+            text-align: center;
+            background-color: plum;
+            font-family: sans-serif;
+            color: white}
+        #year {padding: 0 5px 0 5px}
+    </style>
+
     <h1>
         {{ 'table.podcasts'|trans }}
     </h1>
     {% if paginator.data is defined and paginator.data|length %}
         <table>
             <tr>
-                <th>{{ 'table.id'|trans }} </th>
                 <th>{{ 'table.author'|trans }} </th>
                 <th>{{ 'table.title'|trans }} </th>
-                <th>{{ 'table.cast'|trans }} </th>
                 <th>{{ 'table.year'|trans }} </th>
             </tr>
             {% for row in paginator.data %}
                 <tr>
-                    {#<td>{{ row.id }}</td>#}
                     <td>{{ row.author }}</td>
-                    <td>{{ row.title }}</td>
-                    <td>{{ row.cast }}</td>
-                    <td>{{ row.year }}</td>
+                    <td><a href="view.html.twig">{{ row.title }}</a></td>
+                    <td id="year">{{ row.year }}</td>
                 </tr>
             {% endfor %}
         </table>

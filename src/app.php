@@ -62,5 +62,6 @@ $app->extend('translator', function ($translator, $app) {
 
 $app->register(new FormServiceProvider());
 $app->register(new ValidatorServiceProvider());
+$app->register(new SessionServiceProvider());
 
 return $app;

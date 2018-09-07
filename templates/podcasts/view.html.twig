@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    {{ 'title.audiobooks'|trans }}
+    {{ 'title.view_podcasts'|trans }}
 {% endblock %}
 
 {% block body %}
@@ -14,24 +14,26 @@
             background-color: plum;
             font-family: sans-serif;
             color: white}
-        #year {padding: 0 5px 0 5px}
     </style>
 
     <h1>
-        {{ 'table.audiobooks'|trans }}
+        {{ 'table.podcasts_view'|trans }}
     </h1>
+
     {% if paginator.data is defined and paginator.data|length %}
         <table>
             <tr>
-                <th>{{ 'table.author'|trans }} </th>
+                <th>{{ 'table.episode_id'|trans }} </th>
+                <th>{{ 'table.episode_title'|trans }} </th>
                 <th>{{ 'table.title'|trans }} </th>
-                <th>{{ 'table.year'|trans }} </th>
+                <th>{{ 'table.author'|trans }} </th>
             </tr>
             {% for row in paginator.data %}
                 <tr>
+                    <td>{{ row.episode_id }}</td>
+                    <td>{{ row.episode_title }}</td>
+                    <td>{{ row.title }}</td>
                     <td>{{ row.author }}</td>
-                    <td><a href="view.html.twig">{{ row.title }}</a></td>
-                    <td id="year">{{ row.year }}</td>
                 </tr>
             {% endfor %}
         </table>

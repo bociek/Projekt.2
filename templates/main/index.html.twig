@@ -13,8 +13,11 @@
         Welcome to our application. You can store all your favourite media in one place. Join our family!
     </h2>
 
-    {#<h3 style align="center">
-        <li><a href="{{ url('login') }}">Log In</a></li>
-        <li><a href="{{ url('register') }}">Register</a></li>
-    </h3>#}
+    <h3>
+        {#<li><a href="{{ url('login') }}">Log In</a></li>
+        <li><a href="{{ url('register') }}">Register</a></li>#}
+        <li><a href="{{ url('album_index') }}">{{ 'table.albums'|trans }}</a></li>
+        <li><a href="{{ url('audiobook_index') }}">{{ 'table.audiobooks'|trans }}</a></li>
+        <li><a href="{{ url('podcast_index') }}">{{ 'table.podcasts'|trans }}</a></li>
+    </h3>
 {% endblock %}

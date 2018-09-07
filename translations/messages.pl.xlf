@@ -7,6 +7,11 @@
                 <target>Strona startowa</target>
             </trans-unit>
 
+            <trans-unit id="title.homepage_back">
+                <source>title.homepage_back</source>
+                <target>Powrót na stronę główną</target>
+            </trans-unit>
+
             <trans-unit id="title.albums">
                 <source>title.albums</source>
                 <target>Lista albumów</target>
@@ -54,7 +59,7 @@
 
             <trans-unit id="table.artist">
                 <source>table.artist</source>
-                <target>Artysta</target>
+                <target>Wykonawca</target>
             </trans-unit>
 
             <trans-unit id="table.cast">
@@ -62,9 +67,24 @@
                 <target>Obsada</target>
             </trans-unit>
 
+            <trans-unit id="table.cover">
+                <source>table.cover</source>
+                <target>Okładka albumu</target>
+            </trans-unit>
+
             <trans-unit id="table.title">
                 <source>table.title</source>
                 <target>Tytuł</target>
+            </trans-unit>
+
+            <trans-unit id="table.title_track">
+                <source>table.title_track</source>
+                <target>Tytuł utworu</target>
+            </trans-unit>
+
+            <trans-unit id="table.title_id">
+                <source>table.title_id</source>
+                <target>Numer utworu</target>
             </trans-unit>
 
             <trans-unit id="table.year">

@@ -16,7 +16,10 @@ class AudiobookController implements ControllerProviderInterface
     public function connect(Application $app)
     {
         $controller = $app['controllers_factory'];
-        $controller->get('/', [$this, 'indexAction'])->bind('audiobook_index');
+        $controller->get('/', [$this, 'indexAction'])
+            ->bind('audiobook_index');
+        $controller->get('/display', [$this, 'showAction'])
+            ->bind('audiobook_display');
 
         return $controller;
     }
@@ -30,4 +33,18 @@ class AudiobookController implements ControllerProviderInterface
             ['paginator' => $audiobookRepository->findAllPaginated($page)]
         );
     }
+
+    public function showAction(Application $app)
+    {
+        $audiobookRepository = new AudiobookRepository($app['db']);
+
+        dump($audiobookRepository->showChapters());
+
+        return $app['twig']->render(
+            'audiobooks/view.html.twig',
+            ['paginator' => $audiobookRepository->showChapters()]
+        );
+
+    }
+
 }

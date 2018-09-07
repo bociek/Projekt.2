@@ -18,6 +18,8 @@
         </script>
     </head>
     <body>
-        {% block content %}{% endblock %}
+        {% block content %}
+            {% include 'default/_flash_messages.html.twig' %}
+        {% endblock %}
     </body>
 </html>

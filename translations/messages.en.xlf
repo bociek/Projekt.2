@@ -7,6 +7,11 @@
                 <target>Homepage</target>
             </trans-unit>
 
+            <trans-unit id="title.homepage_back">
+                <source>title.homepage_back</source>
+                <target>Go to the homepage</target>
+            </trans-unit>
+
             <trans-unit id="title.albums">
                 <source>title.albums</source>
                 <target>List of albums</target>
@@ -62,9 +67,24 @@
                 <target>Cast</target>
             </trans-unit>
 
+            <trans-unit id="table.cover">
+                <source>table.cover</source>
+                <target>Album cover</target>
+            </trans-unit>
+
             <trans-unit id="table.title">
                 <source>table.title</source>
                 <target>Title</target>
+            </trans-unit>
+
+            <trans-unit id="table.title_track">
+                <source>table.title_track</source>
+                <target>Song title</target>
+            </trans-unit>
+
+            <trans-unit id="table.title_id">
+                <source>table.title_id</source>
+                <target>Tracklist</target>
             </trans-unit>
 
             <trans-unit id="table.year">
