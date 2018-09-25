@@ -5,22 +5,51 @@
 {% endblock %}
 
 {% block body %}
-    <h3>
-        <li><a href="{{ url('auth_login') }}">{{ 'auth.login.label'|trans }}</a></li>
-        <li><a href="{{ url('auth_register') }}">{{ 'auth.register.label'|trans }}</a></li>
-    </h3>
+    <div class="bar">
+        {% if is_granted('IS_AUTHENTICATED_FULLY') == false %}
+        <h3>
+            <ul>
+                <li><a href="{{ url('auth_login') }}">{{ 'auth.login.label'|trans }}</a></li>
+                <li><a href="{{ url('auth_register') }}">{{ 'auth.register.label'|trans }}</a></li>
+            </ul>
+        </h3>
+        {% endif %}
+
+        {% if is_granted('ROLE_ADMIN') %}
+            <h3>
+                <ul>
+                    <li><a href="{{ url('admin_index') }}">{{ 'table.admin'|trans }}</a></li>
+                </ul>
+            </h3>
+        {% endif %}
+
+        {% if (is_granted('IS_AUTHENTICATED_FULLY')) and (is_granted('ROLE_ADMIN') == false) %}
+            <h3>
+                <ul>
+                    <li><a href="{{ url('user_edit') }}">{{ 'table.edit.my.data'|trans }}</a></li>
+                </ul>
+            </h3>
+        {% endif %}
+
+    </div>
 
     <h1>
         <img src="{{ asset('images/mushelf.png') }}" alt="logo" />
     </h1>
 
     <h2>
-        Welcome to our application. You can store all your favourite media in one place. Join our family!
+        {{ 'message.welcome'|trans }}
     </h2>
 
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
     <h3>
-        <li><a href="{{ url('album_index') }}">{{ 'table.albums'|trans }}</a></li>
-        <li><a href="{{ url('audiobook_index') }}">{{ 'table.audiobooks'|trans }}</a></li>
-        <li><a href="{{ url('podcast_index') }}">{{ 'table.podcasts'|trans }}</a></li>
+        <ul>
+            <li><a href="{{ url('album_index') }}">{{ 'table.albums'|trans }}</a></li>
+            <li><a href="{{ url('audiobook_index') }}">{{ 'table.audiobooks'|trans }}</a></li>
+            <li><a href="{{ url('podcast_index') }}">{{ 'table.podcasts'|trans }}</a></li>
+            <li><a href="{{ url('myshelf_index') }}">{{ 'table.myshelf'|trans }}</a></li>
+        </ul>
     </h3>
+    {% endif %}
+
 {% endblock %}

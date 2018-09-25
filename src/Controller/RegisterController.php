@@ -26,6 +26,14 @@ class RegisterController implements ControllerProviderInterface
         return $controller;
     }
 
+    /**
+     * Register action.
+     *
+     * @param Application $app
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @throws \Doctrine\DBAL\DBALException
+     */
     public function registerAction(Application $app, Request $request)
     {
         $register = [];
@@ -37,11 +45,9 @@ class RegisterController implements ControllerProviderInterface
             $userRepository = new UserRepository($app['db']);
             $register = $form->getData();
             $register['password'] = $app['security.encoder.bcrypt']->encodePassword($register['password'], '');
-            $userRepository->registerUser($register);
 
-            dump($register = $form->getData());
 
-            if ($register) {
+            if ($userRepository->registerUser($register)) {
                 $app['session']->getFlashBag()->add(
                     'messages',
                     [

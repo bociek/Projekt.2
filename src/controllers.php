@@ -11,6 +11,9 @@ use Controller\AudiobookController;
 use Controller\PodcastController;
 use Controller\AuthController;
 use Controller\RegisterController;
+use Controller\MyshelfController;
+use Controller\AdminController;
+use Controller\UserController;
 
 //Request::setTrustedProxies(array('127.0.0.1'));
 
@@ -20,7 +23,7 @@ $app->get('/', function () use ($app) {
 ->bind('homepage')
 ;
 
-$app->error(function (\Exception $e, Request $request, $code) use ($app) {
+$app->error(function (Exception $e, Request $request, $code) use ($app) {
     if ($app['debug']) {
         return;
     }
@@ -42,3 +45,6 @@ $app->mount('/audiobooks', new AudiobookController());
 $app->mount('/podcasts', new PodcastController());
 $app->mount('/auth', new AuthController());
 $app->mount('/register', new RegisterController());
+$app->mount('/myshelf', new MyshelfController());
+$app->mount('/admin', new AdminController());
+$app->mount('/user', new UserController());

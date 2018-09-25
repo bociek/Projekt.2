@@ -30,9 +30,14 @@
         </div>
     {% endif %}
 
+    {#{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <h3>
+            <a href="{{ url('audiobook_add') }}">{{ 'add.audiobook.label'|trans }}</a>
+        </h3>
+    {% endif %}#}
     <h3>
-        <li><a href="{{ url('homepage') }}">{{ 'homepage.back.label'|trans }}</a></li>
+        <ul>
+            <li><a href="{{ url('homepage') }}">{{ 'homepage.back.label'|trans }}</a></li>
+        </ul>
     </h3>
-
-
 {% endblock %}

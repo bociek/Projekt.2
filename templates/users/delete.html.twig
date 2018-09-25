@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.users.delete'|trans }}
+{% endblock %}
+
+{% block body %}
+
+    {% if is_granted('ROLE_ADMIN') %}
+
+    {% if error is defined and error|length %}
+        {% include 'default/_single_alert_message.html.twig' with {
+            is_single_message: true,
+            is_dismissible: false,
+            type: 'danger',
+            message: error,
+        } %}
+    {% endif %}
+
+    {{ 'message.are.you.sure'|trans }}
+
+    <div>
+        {{ form_start(form, { method: 'post', action: url('user_delete', {'user_id' :id}) }) }}
+        {{ form_widget(form) }}
+        {#<input type="submit" value="{{ 'action.save'|trans }}" class="btn btn-success" />#}
+        {{ form_end(form) }}
+    </div>
+    <div class="btn-group" role="group" aria-label="{{ 'label.actions'|trans }}">
+        <a href="{{ url('admin_index') }}" title="{{ 'label.back_to_list'|trans }}" class="btn btn-default">
+            <span class="fa fa-mail-reply" aria-hidden="true"></span>
+            {{ 'label.back_to_list'|trans }}
+        </a>
+    </div>
+
+    {% endif %}
+
+{% endblock %}

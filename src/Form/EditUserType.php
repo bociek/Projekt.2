@@ -1,25 +1,21 @@
 <?php
 
 /**
- * RegisterType form.
+ * EditUserType form.
  */
 
 namespace Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
-use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
-use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints as Assert;
-use Validator\Constraints as CustomAssert;
 /**
- * Class RegisterType
+ * Class EditUserType
  */
-class RegisterType extends AbstractType
+class EditUserType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -92,17 +88,17 @@ class RegisterType extends AbstractType
             ]
         );
 
-/*        $builder->add(
-            'bday',
-            BirthdayType::class,
-            [
-                'label' => 'label.bday',
-                'required' => false,
-                'attr' => [
-                    'max_length' => 128,
-                ],
-            ]
-        );*/
+        /*        $builder->add(
+                    'bday',
+                    BirthdayType::class,
+                    [
+                        'label' => 'label.bday',
+                        'required' => false,
+                        'attr' => [
+                            'max_length' => 128,
+                        ],
+                    ]
+                );*/
 
         $builder->add(
             'country',
@@ -116,7 +112,7 @@ class RegisterType extends AbstractType
             ]
         );
 
-        $builder->add(
+        /*$builder->add(
             'login',
             TextType::class,
             [
@@ -135,12 +131,11 @@ class RegisterType extends AbstractType
                             'max' => 45,
                         ]
                     ),
-                    new CustomAssert\UniqueTag(),
                 ],
             ]
-        );
+        );*/
 
-        $builder->add(
+        /*$builder->add(
             'password',
             RepeatedType::class,
             [
@@ -163,7 +158,7 @@ class RegisterType extends AbstractType
                     ),
                 ],
             ]
-        );
+        );*/
     }
 
     /**
@@ -171,6 +166,6 @@ class RegisterType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'register_type';
+        return 'editUser_type';
     }
 }

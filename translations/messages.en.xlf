@@ -261,6 +261,285 @@
                 <source>Day</source>
                 <target>Day</target>
             </trans-unit>
+
+            <trans-unit id="add.album.label">
+                <source>add.album.label</source>
+                <target>Add album</target>
+            </trans-unit>
+
+            <trans-unit id="add.audiobook.label">
+                <source>add.audiobook.label</source>
+                <target>Add audiobook</target>
+            </trans-unit>
+
+            <trans-unit id="add.podcast.label">
+                <source>add.podcast.label</source>
+                <target>Add podcast</target>
+            </trans-unit>
+
+            <trans-unit id="title.add.album">
+                <source>title.add.album</source>
+                <target>Add album title</target>
+            </trans-unit>
+
+            <trans-unit id="label.artist">
+                <source>label.artist</source>
+                <target>Enter artist</target>
+            </trans-unit>
+
+            <trans-unit id="label.album">
+                <source>label.album</source>
+                <target>Enter artist</target>
+            </trans-unit>
+
+            <trans-unit id="label.year">
+                <source>label.year</source>
+                <target>Enter year</target>
+            </trans-unit>
+
+            <trans-unit id="action.save">
+                <source>action.save</source>
+                <target>Save data</target>
+            </trans-unit>
+
+            <trans-unit id="label.back_to_list">
+                <source>label.back_to_list</source>
+                <target>Back to list</target>
+            </trans-unit>
+
+            <trans-unit id="message.add_complete">
+                <source>message.add_complete</source>
+                <target>Add complete</target>
+            </trans-unit>
+
+            <trans-unit id="message.add_error">
+                <source>message.add_error</source>
+                <target>Add error</target>
+            </trans-unit>
+
+            <trans-unit id="title.add.audiobook">
+                <source>title.add.audiobook</source>
+                <target>Add audiobook title</target>
+            </trans-unit>
+
+            <trans-unit id="title.add.podcast">
+                <source>title.add.podcast</source>
+                <target>Add podcast title</target>
+            </trans-unit>
+
+            <trans-unit id="label.author">
+                <source>label.author</source>
+                <target>Enter author name</target>
+            </trans-unit>
+
+            <trans-unit id="label.title">
+                <source>label.title</source>
+                <target>Enter title</target>
+            </trans-unit>
+
+            <trans-unit id="table.myshelf">
+                <source>table.myshelf</source>
+                <target>My shelf</target>
+            </trans-unit>
+
+            <trans-unit id="title.myshelf">
+                <source>title.myshelf</source>
+                <target>Your shelf</target>
+            </trans-unit>
+
+            <trans-unit id="message.welcome">
+                <source>message.welcome</source>
+                <target>Welcome to our application. You can store all your favourite media in one place. Join our family!</target>
+            </trans-unit>
+
+            <trans-unit id="table.admin">
+                <source>table.admin</source>
+                <target>Admin page</target>
+            </trans-unit>
+
+            <trans-unit id="title.admin.panel">
+                <source>title.admin.panel</source>
+                <target>List of users</target>
+            </trans-unit>
+
+            <trans-unit id="table.login">
+                <source>table.login</source>
+                <target>Login</target>
+            </trans-unit>
+
+            <trans-unit id="table.fname">
+                <source>table.fname</source>
+                <target>First name</target>
+            </trans-unit>
+
+            <trans-unit id="table.lname">
+                <source>table.lname</source>
+                <target>Last name</target>
+            </trans-unit>
+
+            <trans-unit id="table.email">
+                <source>table.email</source>
+                <target>Email</target>
+            </trans-unit>
+
+            <trans-unit id="table.country">
+                <source>table.country</source>
+                <target>Country</target>
+            </trans-unit>
+
+            <trans-unit id="table.delete">
+                <source>table.delete</source>
+                <target>Delete user</target>
+            </trans-unit>
+
+            <trans-unit id="title.user.edit">
+                <source>title.users.edit</source>
+                <target>Edit user data</target>
+            </trans-unit>
+
+            <trans-unit id="title.users.delete">
+                <source>title.users.delete</source>
+                <target>Delete user</target>
+            </trans-unit>
+
+            <trans-unit id="message.are.you.sure">
+                <source>message.are.you.sure</source>
+                <target>Are you sure?</target>
+            </trans-unit>
+
+            <trans-unit id="label.delete">
+                <source>label.delete</source>
+                <target>Yes, delete</target>
+            </trans-unit>
+
+            <trans-unit id="add.song.label">
+                <source>add.song.label</source>
+                <target>Add song</target>
+            </trans-unit>
+
+            <trans-unit id="add.chapter.label">
+                <source>add.chapter.label</source>
+                <target>Add chapter</target>
+            </trans-unit>
+
+            <trans-unit id="add.episode.label">
+                <source>add.episode.label</source>
+                <target>Add episode</target>
+            </trans-unit>
+
+            <trans-unit id="title.add.song">
+                <source>title.add.song</source>
+                <target>Add song page</target>
+            </trans-unit>
+
+            <trans-unit id="label.song_title">
+                <source>label.song_title</source>
+                <target>Enter song title</target>
+            </trans-unit>
+
+            <trans-unit id="label.album_title">
+                <source>label.album_title</source>
+                <target>Enter album title</target>
+            </trans-unit>
+
+            <trans-unit id="label.track_id">
+                <source>label.track_id</source>
+                <target>Enter track id</target>
+            </trans-unit>
+
+            <trans-unit id="title.add.chapter">
+                <source>title.add.chapter</source>
+                <target>Add chapter page</target>
+            </trans-unit>
+
+            <trans-unit id="label.chapter_title">
+                <source>label.chapter_title</source>
+                <target>Enter chapter title</target>
+            </trans-unit>
+
+            <trans-unit id="label.audiobook_title">
+                <source>label.audiobook_title</source>
+                <target>Enter audiobook title</target>
+            </trans-unit>
+
+            <trans-unit id="title.add.episode">
+                <source>title.add.episode</source>
+                <target>Add episode page</target>
+            </trans-unit>
+
+            <trans-unit id="label.episode_title">
+                <source>label.episode_title</source>
+                <target>Enter episode title</target>
+            </trans-unit>
+
+            <trans-unit id="label.podcast_title">
+                <source>label.podcast_title</source>
+                <target>Enter podcast title</target>
+            </trans-unit>
+
+            <trans-unit id="title.song.delete">
+                <source>title.song.delete</source>
+                <target>Delete song page</target>
+            </trans-unit>
+
+            <trans-unit id="message.are.you.sure.song">
+                <source>message.are.you.sure.song</source>
+                <target>Are you sure you want to do this?</target>
+            </trans-unit>
+
+            <trans-unit id="title.chapter.delete">
+                <source>title.chapter.delete</source>
+                <target>Delete chapter page</target>
+            </trans-unit>
+
+            <trans-unit id="title.episode.delete">
+                <source>title.episode.delete</source>
+                <target>Delete episode page</target>
+            </trans-unit>
+
+            <trans-unit id="table.song_title">
+                <source>table.song_title</source>
+                <target>Song title</target>
+            </trans-unit>
+
+            <trans-unit id="table.album_title">
+                <source>table.album_title</source>
+                <target>Album title</target>
+            </trans-unit>
+
+            <trans-unit id="table.delete.song">
+                <source>table.delete.song</source>
+                <target>Delete song</target>
+            </trans-unit>
+
+            <trans-unit id="table.edit.my.data">
+                <source>table.edit.my.data</source>
+                <target>Edit my data</target>
+            </trans-unit>
+
+            <trans-unit id="table.your.albums">
+                <source>table.your.albums</source>
+                <target>Your albums</target>
+            </trans-unit>
+
+            <trans-unit id="table.your.chapters">
+                <source>table.your.chapters</source>
+                <target>Your chapters</target>
+            </trans-unit>
+
+            <trans-unit id="table.your.episodes">
+                <source>table.your.episodes</source>
+                <target>Your episodes</target>
+            </trans-unit>
+
+            <trans-unit id="table.audiobook_title">
+                <source>table.audiobook_title</source>
+                <target>Audiobook title</target>
+            </trans-unit>
+            <trans-unit id="table.podcast_title">
+            <source>table.podcast_title</source>
+            <target>Podcast title</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

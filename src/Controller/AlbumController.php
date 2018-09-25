@@ -5,9 +5,12 @@
 
 namespace Controller;
 
+use Repository\UserRepository;
+use Form\AddAlbumType;
 use Silex\Application;
 use Silex\Api\ControllerProviderInterface;
 use Repository\AlbumRepository;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\SearchType;
 
 /**
@@ -25,6 +28,9 @@ class AlbumController implements ControllerProviderInterface
             ->bind('album_index');
         $controller->get('/{id}/display', [$this, 'showAction'])
             ->bind('album_display');
+        $controller->get('/add', [$this, 'addAlbum'])
+            ->method('GET|POST')
+            ->bind('album_add');
 
         return $controller;
     }
@@ -37,42 +43,67 @@ class AlbumController implements ControllerProviderInterface
     {
         $albumRepository = new AlbumRepository($app['db']);
 
-        /*dump($app['security.encoder.bcrypt']->encodePassword('qwerty123', ''));*/
+        /*dump($albumRepository->showAlbum());*/
 
         return $app['twig']->render(
             'albums/index.html.twig',
-            ['paginator' => $albumRepository->findAllPaginated($page)]
+            /*['paginator' => $albumRepository->findAllPaginated($page)]*/
+            ['album' => $albumRepository->showAlbum()]
         );
     }
 
     /**
-     * Add action.
+     * Add album.
      *
      * @param \Silex\Application                        $app     Silex application
      * @param \Symfony\Component\HttpFoundation\Request $request HTTP Request
      *
      * @return \Symfony\Component\HttpFoundation\Response HTTP Response
      */
-   /* public function addAction(Application $app, Request $request)
+    public function addAlbum(Application $app, Request $request)
     {
-        $album = [];
+        $albumArray = [];
+        $album = new AlbumRepository($app['db']);
 
-        $form = $app['form.factory']->createBuilder(AlbumType::class, $album)->getForm();
+        $form = $app['form.factory']->createBuilder(AddAlbumType::class, $albumArray)->getForm();
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $tag = $form->getData();
-            dump($tag);
+            $albumArray = $form->getData();
+            /*$album->addAlbum($albumArray);*/
+            /*dump($album = $form->getData());*/
+
+        if ($album->addAlbum($albumArray)) {
+            $app['session']->getFlashBag()->add(
+                'messages',
+                [
+                    'type' => 'error',
+                    'message' => 'message.add_error',
+                ]
+            );
+
+        } else {
+            $app['session']->getFlashBag()->add(
+                'messages',
+                [
+                    'type' => 'success',
+                    'message' => 'message.add_complete',
+                ]
+            );
+
+            return $app->redirect($app['url_generator']->generate('homepage'), 301);
         }
+
+    }
 
         return $app['twig']->render(
             'albums/add.html.twig',
             [
-                'album' => $album,
+                'album' => $albumArray,
                 'form' => $form->createView(),
             ]
         );
-    }*/
+    }
 
     /**
      * Search action.
@@ -109,7 +140,10 @@ class AlbumController implements ControllerProviderInterface
     /**
      * Show action.
      *
+     * Shows interactive table.
+     *
      * @param Application $app
+     * @param $id
      * @return mixed
      */
     public function showAction(Application $app, $id)

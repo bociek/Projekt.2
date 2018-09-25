@@ -6,6 +6,7 @@
 namespace Repository;
 
 use Doctrine\DBAL\Connection;
+use Doctrine\DBAL\DBALException;
 use Utils\Paginator;
 
 class AlbumRepository
@@ -80,7 +81,7 @@ class AlbumRepository
         $paginator->setCurrentPage($page);
         $paginator->setMaxPerPage(static::NUM_ITEMS);
 
-        /*$pagesNumber = $this->countAllPages();
+       /* /*$pagesNumber = $this->countAllPages();
 
         $paginator = [
             'page' => ($page < 1 || $page > $pagesNumber) ? 1 : $page,
@@ -133,17 +134,49 @@ class AlbumRepository
         return !$result ? [] : $result;
     }
 
-    public function showAlbum($id)
+    /**
+     * Show album.
+     *
+     * @param $id
+     * @return array
+     */
+    public function showAlbum()
     {
         $queryBuilder = $this->db->createQueryBuilder();
 
-        $queryBuilder->select('s.track_id', 's.title', 'a.album', 's.artist')
+        $queryBuilder->select('s.album_id', 's.title', 'a.album', 's.artist', 's.year')
             ->from('songs', 's')
             ->innerJoin('s', 'albums', 'a', 's.album_id=a.id')
-            ->where('s.album_id = :id')
-            ->setParameter(':id', $id, \PDO::PARAM_INT);
+            ->groupBy('a.album');
+            /*->where('s.album_id = :id')
+            ->setParameter(':id', $id, \PDO::PARAM_INT);*/
 
         return $queryBuilder->execute()->fetchAll();
     }
 
+    /**
+     * Add album.
+     *
+     * @param $album
+     * @return int
+     * @throws DBALException
+     */
+    public function addAlbum($album)
+    {
+        try {
+
+            $this->db->beginTransaction();
+
+            $this->db->insert('albums_data', [
+                'artist' => $album['artist'],
+                'album' => $album['album'],
+                'year' => $album['year'],
+            ]);
+
+            $this->db->commit();
+
+        } catch (DBALException $exception) {
+            throw $exception;
+        }
+    }
 }

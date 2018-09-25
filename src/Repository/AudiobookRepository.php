@@ -105,4 +105,29 @@ class AudiobookRepository
         return $queryBuilder->execute()->fetchAll();
     }
 
+    /**
+     * Add audiobook.
+     *
+     * @param $audiobook
+     * @return int
+     */
+    public function addAudiobook($audiobook)
+    {
+        try {
+
+            $this->db->beginTransaction();
+
+            $this->db->insert('audiobooks_data', [
+                'author' => $audiobook['author'],
+                'title' => $audiobook['title'],
+                'year' => $audiobook['year'],
+            ]);
+
+            $this->db->commit();
+
+        } catch (DBALException $exception) {
+            throw $exception;
+        }
+    }
+
 }

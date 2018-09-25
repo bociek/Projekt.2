@@ -4,6 +4,7 @@
  */
 namespace Controller;
 
+use Repository\UserRepository;
 use Silex\Application;
 use Silex\Api\ControllerProviderInterface;
 
@@ -33,10 +34,14 @@ class HomepageController implements ControllerProviderInterface
     public function indexAction(Application $app)
     {
         //$homepageRepository = new HomepageRepository($app['db']);
+        $userRepository = new UserRepository($app['db']);
+
+        /*dump($userRepository->getUserIdByLogin($user_login)[0]);*/
 
         return $app['twig']->render(
-            'main/index.html.twig'/*,
-            ['tags' => $homepageRepository->findAll()]*/
+            'main/index.html.twig',
+            /*['tags' => $homepageRepository->findAll()]*/
+            ['']
         );
     }
 }

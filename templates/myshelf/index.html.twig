@@ -1,0 +1,104 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.myshelf'|trans }}
+{% endblock %}
+
+{% block body %}
+
+    <h2>
+        {{ 'table.your.albums'|trans }}
+    </h2>
+
+    {% if showAlbums is defined and showAlbums|length  %}
+    <table>
+    <tr>
+        <th>{{ 'table.artist'|trans }} </th>
+        <th>{{ 'table.song_title'|trans }} </th>
+        <th>{{ 'table.album_title'|trans }} </th>
+        <th>{{ 'table.track_id'|trans }} </th>
+        <th>{{ 'table.year'|trans }} </th>
+        <th>{{ 'table.delete.song'|trans }}</th>
+    </tr>
+        {% for row in showAlbums %}
+            <tr>
+                <td>{{ row.artist }}</td>
+                <td>{{ row.song_title }}</td>
+                <td>{#<a href="{{ url('album_album') }}">#}{{ row.album_title }}</td>
+                <td>{{ row.track_id }}</td>
+                <td>{{ row.year }}</td>
+                <td><a href="{{ url('song_delete', {'id': row.id}) }}">{{ '&#10060' }}</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+        <div>
+            List is empty!
+        </div>
+    {% endif %}
+
+    <h2>
+        {{ 'table.your.chapters'|trans }}
+    </h2>
+
+    {% if showChapters is defined and showChapters|length  %}
+        <table>
+            <tr>
+                <th>{{ 'table.author'|trans }} </th>
+                <th>{{ 'table.chapter_title'|trans }}</th>
+                <th>{{ 'table.audiobook_title'|trans }}</th>
+                <th>{{ 'table.chapter_id'|trans }}</th>
+                <th>{{ 'table.year'|trans }} </th>
+                <th>{{ 'table.delete.song'|trans }}</th>
+            </tr>
+        {% for row in showChapters %}
+            <tr>
+                <td>{{ row.author }}</td>
+                <td>{{ row.chapter_title }}</td>
+                <td>{{ row.audiobook_title }}</td>
+                <td>{{ row.chapter_id }}</td>
+                <td>{{ row.year }}</td>
+                <td><a href="{{ url('chapter_delete', {'id': row.id}) }}">{{ '&#10060' }}</a></td>
+            </tr>
+        {% endfor %}
+        </table>
+    {% endif %}
+
+    <h2>
+        {{ 'table.your.episodes'|trans }}
+    </h2>
+
+    {% if showEpisodes is defined and showEpisodes|length  %}
+        <table>
+            <tr>
+                <th>{{ 'table.author'|trans }} </th>
+                <th>{{ 'table.episode_title'|trans }}</th>
+                <th>{{ 'table.podcast_title'|trans }}</th>
+                <th>{{ 'table.episode_id'|trans }}</th>
+                <th>{{ 'table.year'|trans }} </th>
+                <th>{{ 'table.delete.song'|trans }}</th>
+            </tr>
+
+        {% for row in showEpisodes %}
+            <tr>
+                <td>{{ row.author}}</td>
+                <td>{{ row.episode_title }}</td>
+                <td>{{ row.podcast_title }}</td>
+                <td>{{ row.episode_id }}</td>
+                <td>{{ row.year }}</td>
+                <td><a href="{{ url('episode_delete', {'id': row.id}) }}">{{ '&#10060' }}</a></td>
+            </tr>
+        {% endfor %}
+        </table>
+    {% endif %}
+
+<h3>
+    <ul>
+        <li><a href="{{ url('song_add') }}">{{ 'add.song.label'|trans }}</a></li>
+        <li><a href="{{ url('chapter_add') }}">{{ 'add.chapter.label'|trans }}</a></li>
+        <li><a href="{{ url('episode_add') }}">{{ 'add.episode.label'|trans }}</a></li>
+        <li><a href="{{ url('homepage') }}">{{ 'homepage.back.label'|trans }}</a></li>
+    </ul>
+</h3>
+
+{% endblock %}

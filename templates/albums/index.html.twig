@@ -15,14 +15,14 @@
     <h1>
         {{ 'table.albums'|trans }}
     </h1>
-    {% if paginator.data is defined and paginator.data|length %}
+    {% if album is defined and album|length %}
         <table>
             <tr>
                 <th>{{ 'table.artist'|trans }} </th>
                 <th>{{ 'table.album'|trans }} </th>
                 <th>{{ 'table.year'|trans }} </th>
             </tr>
-            {% for row in paginator.data %}
+            {% for row in album %}
                 <tr>
                     <td>{{ row.artist }}</td>
                     <td><a href= "{{ url('album_display', {'id': row.album_id}) }}">{{ row.album }}</a></td>
@@ -36,6 +36,11 @@
         </div>
     {% endif %}
 
+    {#{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+    <h3>
+        <li><a href="{{ url('album_add') }}">{{ 'add.album.label'|trans }}</a></li>
+    </h3>
+    {% endif %}#}
     <h3>
         <li><a href="{{ url('homepage') }}">{{ 'homepage.back.label'|trans }}</a></li>
     </h3>

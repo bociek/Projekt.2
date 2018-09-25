@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.users.edit'|trans }}
+{% endblock %}
+
+{% block body %}
+
+    {% if error is defined and error|length %}
+        {% include 'default/_single_alert_message.html.twig' with {
+            is_single_message: true,
+            is_dismissible: false,
+            type: 'danger',
+            message: error,
+        } %}
+    {% endif %}
+
+    <div>
+        {{ form_start(form, { method: 'post', action: url('user_edit', {'id': id}) }) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="{{ 'action.save'|trans }}" class="btn btn-success" />
+        {{ form_end(form) }}
+    </div>
+    {% if is_granted('ROLE_ADMIN') %}
+    <div class="btn-group" role="group" aria-label="{{ 'label.actions'|trans }}">
+        <a href="{{ url('admin_index') }}" title="{{ 'label.back_to_list'|trans }}" class="btn btn-default">
+            <span class="fa fa-mail-reply" aria-hidden="true"></span>
+            {{ 'label.back_to_list'|trans }}
+        </a>
+    </div>
+    {% endif %}
+
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+    <h3>
+        <li><a href="{{ url('homepage') }}">{{ 'homepage.back.label'|trans }}</a></li>
+    </h3>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.admin.panel'|trans }}
+{% endblock %}
+
+{% block body %}
+
+    <h1>
+        {{ 'title.admin.panel'|trans }}
+    </h1>
+
+    {% if is_granted('ROLE_ADMIN') %}
+
+ {% if showAll is defined and showAll|length  %}
+     <table>
+     <tr>
+         <th>{{ 'table.id'|trans }} </th>
+         <th>{{ 'table.login'|trans }} </th>
+         <th>{{ 'table.fname'|trans }} </th>
+         <th>{{ 'table.lname'|trans }} </th>
+         <th>{{ 'table.email'|trans }} </th>
+         <th>{{ 'table.country'|trans }} </th>
+         <th>{{ 'table.delete'|trans }}</th>
+     </tr>
+     {% for row in showAll %}
+         <tr>
+             <td><a href="{{ url('user_edit', {'id': row.id})  }}">{{ row.id }}</a></td>
+             <td>{{ row.login }}</td>
+             <td>{{ row.fname }}</td>
+             <td>{{ row.lname }}</td>
+             <td>{{ row.email }}</td>
+             <td>{{ row.country }}</td>
+             <td><a href="{{ url('user_delete', {'user_id': row.id}) }}">{{ '&#10060' }}</a></td>
+         </tr>
+     {% endfor %}
+     </table>
+    {% else %}
+     <div>
+         List is empty!
+     </div>
+    {% endif %}
+
+    {% endif %}
+
+    <h3>
+        <a href="{{ url('homepage') }}">{{ 'homepage.back.label'|trans }}</a>
+    </h3>
+
+{% endblock %}

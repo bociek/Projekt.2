@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.add.episode'|trans }}
+{% endblock %}
+
+{% block body %}
+
+    <h1>
+        {{ 'title.add.episode'|trans }}
+    </h1>
+
+    {% if error is defined and error|length %}
+        {% include 'default/_single_alert_message.html.twig' with {
+            is_single_message: true,
+            is_dismissible: false,
+            type: 'danger',
+            message: error,
+        } %}
+    {% endif %}
+
+    <div>
+        {{ form_start(form, { method: 'post', action: url('episode_add', {'episode_add': episode_add}) }) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="{{ 'action.save'|trans }}" class="btn btn-success" />
+        {{ form_end(form) }}
+    </div>
+    <div class="btn-group" role="group" aria-label="{{ 'label.actions'|trans }}">
+        <a href="{{ url('myshelf_index') }}" title="{{ 'label.back_to_list'|trans }}" class="btn btn-default">
+            <span class="fa fa-mail-reply" aria-hidden="true"></span>
+            {{ 'label.back_to_list'|trans }}
+        </a>
+    </div>
+
+{% endblock %}

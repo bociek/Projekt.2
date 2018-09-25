@@ -261,6 +261,285 @@
                 <source>Day</source>
                 <target>Dzień</target>
             </trans-unit>
+
+            <trans-unit id="add.album.label">
+                <source>add.album.label</source>
+                <target>Dodaj album do swojej półki</target>
+            </trans-unit>
+
+            <trans-unit id="add.audiobook.label">
+                <source>add.audiobook.label</source>
+                <target>Dodaj audiobook do swojej półki</target>
+            </trans-unit>
+
+            <trans-unit id="add.podcast.label">
+                <source>add.podcast.label</source>
+                <target>Dodaj podcast do swojej półki</target>
+            </trans-unit>
+
+            <trans-unit id="title.add.album">
+                <source>title.add.album</source>
+                <target>Dodaj tytuł albumu</target>
+            </trans-unit>
+
+            <trans-unit id="label.artist">
+                <source>label.artist</source>
+                <target>Wprowadź wykonawcę</target>
+            </trans-unit>
+
+            <trans-unit id="label.album">
+                <source>label.album</source>
+                <target>Wprowadź tytuł albumu</target>
+            </trans-unit>
+
+            <trans-unit id="label.year">
+                <source>label.year</source>
+                <target>Wprowadź rok</target>
+            </trans-unit>
+
+            <trans-unit id="action.save">
+                <source>action.save</source>
+                <target>Zapisz</target>
+            </trans-unit>
+
+            <trans-unit id="label.back_to_list">
+                <source>label.back_to_list</source>
+                <target>Powrót do listy</target>
+            </trans-unit>
+
+            <trans-unit id="message.add_complete">
+                <source>message.add_complete</source>
+                <target>Rekord dodany prawidłowo</target>
+            </trans-unit>
+
+            <trans-unit id="message.add_error">
+                <source>message.add_error</source>
+                <target>Nie udało się zapisać rekordu</target>
+            </trans-unit>
+
+            <trans-unit id="title.add.audiobook">
+                <source>title.add.audiobook</source>
+                <target>Dodaj tytuł audiobooka</target>
+            </trans-unit>
+
+            <trans-unit id="title.add.podcast">
+                <source>title.add.podcast</source>
+                <target>Dodaj tytuł podcastu</target>
+            </trans-unit>
+
+            <trans-unit id="label.author">
+                <source>label.author</source>
+                <target>Wprowadź imię i nazwisko autora</target>
+            </trans-unit>
+
+            <trans-unit id="label.title">
+                <source>label.title</source>
+                <target>Wprowadź tytuł</target>
+            </trans-unit>
+
+            <trans-unit id="table.myshelf">
+                <source>table.myshelf</source>
+                <target>Moja półka</target>
+            </trans-unit>
+
+            <trans-unit id="title.myshelf">
+                <source>title.myshelf</source>
+                <target>Twoja półka</target>
+            </trans-unit>
+
+            <trans-unit id="message.welcome">
+                <source>message.welcome</source>
+                <target>Witaj w naszej aplikacji! Możesz trzymać wszystkie swoje ulubione media w jednym miejscu. Dołącz do nas!</target>
+            </trans-unit>
+
+            <trans-unit id="table.admin">
+                <source>table.admin</source>
+                <target>Panel administratora</target>
+            </trans-unit>
+
+            <trans-unit id="title.admin.panel">
+                <source>title.admin.panel</source>
+                <target>Lista użytkowników</target>
+            </trans-unit>
+
+            <trans-unit id="table.login">
+                <source>table.login</source>
+                <target>Login</target>
+            </trans-unit>
+
+            <trans-unit id="table.fname">
+                <source>table.fname</source>
+                <target>Imię</target>
+            </trans-unit>
+
+            <trans-unit id="table.lname">
+                <source>table.lname</source>
+                <target>Nazwisko</target>
+            </trans-unit>
+
+            <trans-unit id="table.email">
+                <source>table.email</source>
+                <target>Adres email</target>
+            </trans-unit>
+
+            <trans-unit id="table.country">
+                <source>table.country</source>
+                <target>Kraj</target>
+            </trans-unit>
+
+            <trans-unit id="table.delete">
+                <source>table.delete</source>
+                <target>Usuń użytkownika</target>
+            </trans-unit>
+
+            <trans-unit id="title.user.edit">
+                <source>title.users.edit</source>
+                <target>Edytuj dane użytkownika</target>
+            </trans-unit>
+
+            <trans-unit id="title.users.delete">
+                <source>title.users.delete</source>
+                <target>Usuń użytkownika</target>
+            </trans-unit>
+
+            <trans-unit id="message.are.you.sure">
+                <source>message.are.you.sure</source>
+                <target>Jesteś pewien, że chcesz usunąć użytkownika? Będzie to permanentna akcja.</target>
+            </trans-unit>
+
+            <trans-unit id="label.delete">
+                <source>label.delete</source>
+                <target>Tak, usuń</target>
+            </trans-unit>
+
+            <trans-unit id="add.song.label">
+                <source>add.song.label</source>
+                <target>Dodaj piosenkę</target>
+            </trans-unit>
+
+            <trans-unit id="add.chapter.label">
+                <source>add.chapter.label</source>
+                <target>Dodaj rozdział</target>
+            </trans-unit>
+
+            <trans-unit id="add.episode.label">
+                <source>add.episode.label</source>
+                <target>Dodaj odcinek</target>
+            </trans-unit>
+
+            <trans-unit id="title.add.song">
+                <source>title.add.song</source>
+                <target>Dodaj nową piosenkę</target>
+            </trans-unit>
+
+            <trans-unit id="label.song_title">
+                <source>label.song_title</source>
+                <target>Wprowadź tytuł piosenki</target>
+            </trans-unit>
+
+            <trans-unit id="label.album_title">
+                <source>label.album_title</source>
+                <target>Wprowadź tytuł albumu</target>
+            </trans-unit>
+
+            <trans-unit id="label.track_id">
+                <source>label.track_id</source>
+                <target>Wprowadź numer piosenki</target>
+            </trans-unit>
+
+            <trans-unit id="title.add.chapter">
+                <source>title.add.chapter</source>
+                <target>Dodaj nowy rozdział</target>
+            </trans-unit>
+
+            <trans-unit id="label.chapter_title">
+                <source>label.chapter_title</source>
+                <target>Wprowadź tytuł rozdziału</target>
+            </trans-unit>
+
+            <trans-unit id="label.audiobook_title">
+                <source>label.audiobook_title</source>
+                <target>Wprowadź tytuł audiobooka</target>
+            </trans-unit>
+
+            <trans-unit id="title.add.episode">
+                <source>title.add.episode</source>
+                <target>Dodaj nowy odcinek</target>
+            </trans-unit>
+
+            <trans-unit id="label.episode_title">
+                <source>label.episode_title</source>
+                <target>Wprowadź tytuł odcinka</target>
+            </trans-unit>
+
+            <trans-unit id="label.podcast_title">
+                <source>label.podcast_title</source>
+                <target>Wprowadź tytuł podcastu</target>
+            </trans-unit>
+
+            <trans-unit id="title.song.delete">
+                <source>title.song.delete</source>
+                <target>Usuń piosenkę</target>
+            </trans-unit>
+
+            <trans-unit id="message.are.you.sure.song">
+                <source>message.are.you.sure.song</source>
+                <target>Jesteś pewien, że chcesz usunąć rekord?</target>
+            </trans-unit>
+
+            <trans-unit id="title.chapter.delete">
+                <source>title.chapter.delete</source>
+                <target>Usuń rozdział</target>
+            </trans-unit>
+
+            <trans-unit id="title.episode.delete">
+                <source>title.episode.delete</source>
+                <target>Usuń odcinek</target>
+            </trans-unit>
+
+            <trans-unit id="table.song_title">
+                <source>table.song_title</source>
+                <target>Tytuł utworu</target>
+            </trans-unit>
+
+            <trans-unit id="table.album_title">
+                <source>table.album_title</source>
+                <target>Tytuł albumu</target>
+            </trans-unit>
+
+            <trans-unit id="table.delete.song">
+                <source>table.delete.song</source>
+                <target>Usuń rekord</target>
+            </trans-unit>
+
+            <trans-unit id="table.edit.my.data">
+                <source>table.edit.my.data</source>
+                <target>Edytuj moje dane</target>
+            </trans-unit>
+
+            <trans-unit id="table.your.albums">
+                <source>table.your.albums</source>
+                <target>Twoje piosenki</target>
+            </trans-unit>
+
+            <trans-unit id="table.your.chapters">
+                <source>table.your.chapters</source>
+                <target>Twoje rozdziały</target>
+            </trans-unit>
+
+            <trans-unit id="table.your.episodes">
+                <source>table.your.episodes</source>
+                <target>Twoje odcinki</target>
+            </trans-unit>
+
+            <trans-unit id="table.audiobook_title">
+                <source>table.audiobook_title</source>
+                <target>Tytuł audiobooka</target>
+            </trans-unit>
+            <trans-unit id="table.podcast_title">
+                <source>table.podcast_title</source>
+                <target>Tytuł podcastu</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

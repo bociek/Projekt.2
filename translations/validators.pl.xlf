@@ -3,6 +3,11 @@
     <file source-language="en" datatype="plaintext" original="file.ext">
         <body>
 
+            <trans-unit id="value.not.unique">
+                <source>value.not.unique</source>
+                <target> nie jest unikalną wartością.</target>
+            </trans-unit>
+
         </body>
     </file>
 </xliff>

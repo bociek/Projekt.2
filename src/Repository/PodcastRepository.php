@@ -104,4 +104,29 @@ class PodcastRepository
 
         return $queryBuilder->execute()->fetchAll();
     }
+
+    /**
+     * Add podcast.
+     *
+     * @param $podcast
+     * @return int
+     */
+    public function addPodcast($podcast)
+    {
+        try {
+
+            $this->db->beginTransaction();
+
+            $this->db->insert('podcasts_data', [
+                'author' => $podcast['author'],
+                'title' => $podcast['title'],
+                'year' => $podcast['year'],
+            ]);
+
+            $this->db->commit();
+
+        } catch (DBALException $exception) {
+            throw $exception;
+        }
+    }
 }
